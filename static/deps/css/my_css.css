@@ -1,0 +1,349 @@
+.body {
+    background-color: black;
+}
+
+.text {
+    color: white;
+    text-decoration: none;
+}
+.text-red {
+    color: red;
+    text-decoration: none;
+}
+
+.font-links{
+    text-decoration: underline; 
+    text-decoration-color: white; 
+    color: white;
+    list-style: none;
+  }
+
+.main-font {
+    font-family: 'Cascadia Code', monospace;
+}
+
+.font-size-1 {
+    font-size: 16px;
+}
+
+.font-size-2 {
+    font-size: 32px;
+}
+
+.link-color {
+    color: #787878;
+}
+
+.text-align-center-h1 {
+    text-align: center;
+    line-height: 0.5;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-left {
+    text-align: left;
+
+}
+
+.top-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 1570px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    position: relative;
+}
+
+.menu a {
+    flex: 1;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+}
+
+.menu a:hover {
+    background-color: #1a1a1a;
+}
+
+.dropdown-content-filter {
+    display: none; 
+    position: absolute; 
+    z-index: 1; 
+    min-width: 200px; 
+    max-width: 300px;
+    padding: 8px 0; 
+    margin: 2px 0 0; 
+    list-style: none; 
+    background-color: #1a1a1a; 
+    background-clip: padding-box; 
+    border: 1px solid #ccc; 
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-out; 
+  }
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    max-width: 273px;
+    width: 100%;
+    top: 51.5%;
+    left: 0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    transition: all 0.3s ease-out; 
+}
+
+.dropdown-content li {
+    list-style: none;
+    padding: 10px 5px;
+    text-align: center;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+
+}
+
+.dropdown-content li a:hover {
+    background-color: transparent;
+}
+
+
+#infoList {
+    display: none;
+    position: absolute;
+    top: 51.5%;
+    left: 60%;
+}
+
+#profileList {
+    display: none;
+    position: absolute;
+    top: 51.5%;
+    left: 79.99%;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.container-pagi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    max-width: 400px;
+    max-height: 100px;
+    margin: 0 auto;
+}
+
+.container-goods {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.goods-content {
+    display: flex; 
+    justify-content: center; 
+    max-width: 500px;
+}
+
+.avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .avatar-container img {
+    margin-bottom: 10px;
+  }
+
+.image-left {
+    width: 300px;
+    margin-right: 20px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.image-container-goods {
+    display: center;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.button-reg {
+    position: relative;
+    z-index: 100;
+    background-color: #1a1a1a;
+    border: 1px thin #000000;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 10px 22px;
+    font-family: 'Cascadia Code', monospace;
+    margin-right: 5px;
+}
+.button-reg[data-bs-toggle="dropdown"]:active .dropdown-content {
+    display: block; 
+  }
+
+
+.button-fil {
+    position: relative;
+    z-index: 100;
+    background-color: #1a1a1a;
+    border: 1px thin #000000;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 22px;
+    font-family: 'Cascadia Code', monospace;
+    margin-right: 5px;
+}
+.button-fil[data-bs-toggle="dropdown"]:active .dropdown-content {
+    display: block; 
+  }
+
+.search-box {
+    position: relative;
+    z-index: 100;
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px thin #000000;
+    font-family: 'Cascadia Code', monospace;
+    margin-right: 5px;
+    width: 200px;
+    height: 30px;
+}
+
+.container-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-width: 900px;
+    max-height: 1000px;
+    margin: 0 auto;
+}
+
+.container-cart-inside {
+   background-color: #787878;
+   padding: 24px;
+   margin-bottom: 24px;
+   margin-right: 8px;
+    margin-left: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-box-1 {
+    position: relative;
+    z-index: 100;
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px thin #000000;
+    font-family: 'Cascadia Code', monospace;
+    margin-right: 5px;
+    width: 250px;
+    height: 30px;
+}
+
+.button-reg-bigger {
+    position: relative;
+    z-index: 100;
+    background-color: #1a1a1a;
+    border: 1px thin #000000;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 22px;
+    font-family: 'Cascadia Code', monospace;
+    margin-right: 5px;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.cart-item {
+    display: flex; 
+    align-items: center; 
+  }
+  
+  .cart-item >  { 
+    margin-right: 10px; 
+  }
+  
+  .cart-item > :last-child { 
+    margin-right: 0;
+  }
+
+.row-goods {
+    display:flex;
+    padding: 10px 150px;
+}
+
+.row {
+    display:flex;
+}
+
+
+

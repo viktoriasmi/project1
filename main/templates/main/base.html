@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "deps/css/my_css.css" %}">
+    <script src="{% static "deps/js/javascript.js" %}"></script>
+    <link rel="icon" href="{% static "deps/favicon/apple-touch-icon.png" %}" type="image/x-icon">
+    <title>{{ title }}</title>
+</head>
+
+<body class="body text main-font">
+    <div class="top-right">
+        <input type="text" placeholder="Поиск..." class="search-box">
+        <a href="users/registration.html" class="button-reg">Регистрация</a>
+        <a href="users/login.html" class="button-reg">Войти</a>
+    </div>
+    <div style="position: absolute; z-index: 100;">
+        <!-- Черный фон -->
+    </div>
+
+    <p></p>
+    <nav class="menu">
+        <a id="menuButton">Меню</a>
+        <ul id="menuList" class="dropdown-content">
+            <li><a href="goods/catalog.html">Все блюда</a></li>
+            <li><a href="goods/catalog.html">Суши и роллы</a></li>
+            <li><a href="goods/catalog.html">Салаты</a></li>
+            <li><a href="goods/catalog.html">Горячие блюда</a></li>
+            <li><a href="goods/catalog.html">Десерты</a></li>
+            <li><a href="goods/catalog.html">Напитки</a></li>
+            <li><a href="goods/catalog.html">Аксессуары</a></li>
+        </ul>
+        <a class="text" href="carts/cart.html">Корзина</a> 
+        
+        <a href="{% url "main:index" %}"><img src="{% static "deps/images/logotype-correct.png" %}" alt="img" /></a>
+        
+
+        <a id="infoButton">Информация</a>
+        <ul id="infoList" class="dropdown-content">
+            <li><a href="{% url "main:about" %}">Контактная информация</a></li>
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Новости</a></li>
+        </ul>
+
+        <a id="profileButton">Мой профиль</a>
+        <ul id="profileList" class="dropdown-content">
+            <li><a href="users/profile.html">Личный кабинет</a></li>
+            <li><a href="#">Админ</a></li>
+            <hr>
+            <li><a href="#">Выйти</a></li>
+        </ul>
+    </nav>    
+    <p></p>
+    <div style="height: 40px;"></div>
+    <p></p>
+    {% block content %}
+    
+    {% endblock content %}
+
+
+</body>
+
+    </html>
+    </p>

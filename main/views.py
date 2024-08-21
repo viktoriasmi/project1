@@ -4,10 +4,15 @@ from django.template import context
 
 def index(request):
     context = {
-        'title': 'Home',
-        'content': 'Главная страница доставки еды'
+        'title': 'Yare Yare Daze',
+        'content': "Доставка еды японской кухни"
+        
     }
     return render(request, 'main/index.html', context)
 
 def about(request):
-    return HttpResponse('About page')
+    context = {
+        'title': 'О нас',
+        'content': "Доставка еды японской кухни"
+    }
+    return render(request, 'main/about.html', context)
