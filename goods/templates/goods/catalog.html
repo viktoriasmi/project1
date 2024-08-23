@@ -1,0 +1,262 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<div>
+    <!-- Форма фильтров -->
+    <div>
+        <button id="filterButton" class="button-fil" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Фильтры
+        </button>
+        <form action="" method="get" class="dropdown-content-filter" data-bs-theme="dark">
+          <div>
+            <input type="checkbox" name="on_sale" id="flexCheckDefault" value="on">
+            <input type="hidden" name="q" value="request.GET.q">
+            <label for="flexCheckDefault">
+              Товары по акции
+            </label>
+          </div>
+          <p>Сортировать:</p>
+          <div>
+            <input type="radio" name="order_by" id="flexRadioDefault1" value="default" checked>
+            <label for="flexRadioDefault1">
+              По умолчанию
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="order_by" id="flexRadioDefault2" value="price">
+            <label for="flexRadioDefault2">
+              От дешевых к дорогим
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="order_by" id="flexRadioDefault3" value="-price">
+            <label for="flexRadioDefault3">
+              От дорогих к дешевым
+            </label>
+          </div>
+          <button type="submit" class="button-reg">Применить</button>
+        </form>
+      </div>
+      <p></p>
+    <!-- Карта товара -->
+    <div class="row-goods">
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="../deps/images/goods/california.jpg" class="image-container-goods" alt="...">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">Роллы «Калифорния»</p>
+                    </a>
+                    <p class="card-text text-truncate">Классические роллы с крабовыми палочками, авокадо и огурцом, завернутые в рис и нори, подаются с кунжутом.</p>
+                    <p class="product_id">id: 02265</p>
+                    <div class="d-flex justify-content-between">
+                        <p><s>400.00 руб.</s> </p>
+                        <p><strong>360.00 руб.</strong></p>
+                        <span class="text-red">Скидка 10.00 %</span>
+                        <a href="#" class="btn add-to-cart">
+                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Карта товара -->
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="../deps/images/goods/sushi ugor.jpg" class="image-container-goods" alt="...">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">Суши с угрём</p>
+                    </a>
+                    <p class="card-text text-truncate">Нежные кусочки свежего угря, маринованного в соевом соусе и сахаре, подаются на рисе, украшенном васаби и маринованным имбирем.</p>
+                    <p class="product_id">id: 02266</p>
+                    <div class="d-flex justify-content-between">
+                        <p><s>500.00 руб.</s> </p>
+                        <p><strong>450.00 руб.</strong></p>
+                        <span class="text-red">Скидка 10.00 %</span>
+                        <a href="#" class="btn add-to-cart">
+                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="../deps/images/goods/krevetki tempura.jpg" class="image-container-goods" alt="...">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">Темпура с креветками</p>
+                    </a>
+                    <p class="card-text text-truncate">Сочные креветки, обжаренные в хрустящем кляре, подаются с соусом для темпуры.
+                    </p>
+                    <p class="product_id">id: 02267</p>
+                    <div class="d-flex justify-content-between">
+                        <p><s>500.00 руб.</s> </p>
+                        <p><strong>450.00 руб.</strong></p>
+                        <span class="text-red">Скидка 10.00 %</span>
+                        <a href="#" class="btn add-to-cart">
+                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="../deps/images/goods/miso soup chicken.jpg" class="image-container-goods" alt="...">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">Суп мисо с курицей</p>
+                    </a>
+                    <p class="card-text text-truncate">Традиционный японский суп на основе мисо-пасты с добавлением курицы, водорослей нори, тофу и зеленого лука. 
+
+                    </p>
+                    <p class="product_id">id: 02268</p>
+                    <div class="d-flex justify-content-between">
+                        <p><s>350.00 руб.</s> </p>
+                        <p><strong>315.00 руб.</strong></p>
+                        <span class="text-red">Скидка 10.00 %</span>
+                        <a href="#" class="btn add-to-cart">
+                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Вторая строка -->
+<div class="row-goods">
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="../deps/images/goods/cheesecake tea.jpg" class="image-container-goods" alt="...">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">Чизкейк с зелёным чаем</p>
+                    </a>
+                    <p class="card-text text-truncate">Воздушный чизкейк с нежным вкусом зеленого чая, подается с соусом из зеленого чая.</p>
+                    <p class="product_id">id: 02269</p>
+                    <div class="d-flex justify-content-between">
+                        <p><s>300.00 руб.</s> </p>
+                        <p><strong>270.00 руб.</strong></p>
+                        <span class="text-red">Скидка 10.00 %</span>
+                        <a href="#" class="btn add-to-cart">
+                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Карта товара -->
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="../deps/images/goods/drakon.jpg" class="image-container-goods" alt="...">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">Роллы «Дракон»</p>
+                    </a>
+                    <p class="card-text text-truncate">Классические роллы с нежным угрем, хрустящим огурцом и кремовым авокадо. Икра тобико придает пикантность и праздничный вид.</p>
+                    <p class="product_id">id: 02270</p>
+                    <div class="d-flex justify-content-between">
+                        <p><s>400.00 руб.</s> </p>
+                        <p><strong>360.00 руб.</strong></p>
+                        <span class="text-red">Скидка 10.00 %</span>
+                        <a href="#" class="btn add-to-cart">
+                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="../deps/images/goods/ceaser.jpg" class="image-container-goods" alt="...">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">Роллы «Цезарь»</p>
+                    </a>
+                    <p class="card-text text-truncate">Необычное сочетание японских и европейских вкусов: сочная курица, пикантный сыр Пармезан и свежие овощи.
+                    </p>
+                    <p class="product_id">id: 02271</p>
+                    <div class="d-flex justify-content-between">
+                        <p><s>350.00 руб.</s> </p>
+                        <p><strong>315.00 руб.</strong></p>
+                        <span class="text-red">Скидка 10.00 %</span>
+                        <a href="#" class="btn add-to-cart">
+                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="../deps/images/goods/nigiri krevetka.jpg" class="image-container-goods" alt="...">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">Нигири с креветкой</p>
+                    </a>
+                    <p class="card-text text-truncate">Нежное и сочное нигири с креветкой на подушке из риса. 
+                    </p>
+                    <p class="product_id">id: 02272</p>
+                    <div class="d-flex justify-content-between">
+                        <p><s>160.00 руб.</s> </p>
+                        <p><strong>144.00 руб.</strong></p>
+                        <span class="text-red">Скидка 10.00 %</span>
+                        <a href="#" class="btn add-to-cart">
+                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<!-- Пагинация -->
+<nav aria-label="Page navigation example">
+    <div class="container-pagi"> 
+        <ul style="display: flex; grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); gap: 10px;" class="font-links"> 
+            <li>
+                <a class="font-links">Предыдущая</a>
+            </li>
+            <li class="font-links"><a class="font-links" href="#">1</a></li>
+            <li class="font-links"><a class="font-links" href="#">2</a></li>
+            <li class="font-links"><a class="font-links" href="#">3</a></li>
+            <li class="font-links">
+                <a class="font-links" href="#">Следующая</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+</div>
+</div>
+</div>
+</section>
+
+{% endblock content %}
+
