@@ -39,24 +39,26 @@
         </form>
       </div>
       <p></p>
-    <!-- Карта товара -->
+
     <div class="row-goods">
+    {% for product in goods_1 %}
     <div class="container-goods">
         <div class="goods-content">
             <div>
-                <img src="../deps/images/goods/california.jpg" class="image-container-goods" alt="...">
+                <img src="{% static product.image %}" class="image-container-goods" alt="...">
                 <div>
                     <a href="../goods/product.html">
-                        <p class="font-links">Роллы «Калифорния»</p>
+                        <p class="font-links">{{ product.name }}</p>
                     </a>
-                    <p class="card-text text-truncate">Классические роллы с крабовыми палочками, авокадо и огурцом, завернутые в рис и нори, подаются с кунжутом.</p>
+                    <p class="card-text text-truncate">{{ product.description }}</p>
                     <p class="product_id">id: 02265</p>
                     <div class="d-flex justify-content-between">
-                        <p><s>400.00 руб.</s> </p>
+                        {% comment %} <p><s>400.00 руб.</s> </p>
                         <p><strong>360.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span>
+                        <span class="text-red">Скидка 10.00 %</span> {% endcomment %}
+                        <p><strong>{{ product.price }} руб.</strong></p>
                         <a href="#" class="btn add-to-cart">
-                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                            <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
                                 width="25" height="25">
                         </a>
                     </div>
@@ -64,122 +66,28 @@
             </div>
         </div>
     </div>
-    <!-- Карта товара -->
-    <div class="container-goods">
-        <div class="goods-content">
-            <div>
-                <img src="../deps/images/goods/sushi ugor.jpg" class="image-container-goods" alt="...">
-                <div>
-                    <a href="../goods/product.html">
-                        <p class="font-links">Суши с угрём</p>
-                    </a>
-                    <p class="card-text text-truncate">Нежные кусочки свежего угря, маринованного в соевом соусе и сахаре, подаются на рисе, украшенном васаби и маринованным имбирем.</p>
-                    <p class="product_id">id: 02266</p>
-                    <div class="d-flex justify-content-between">
-                        <p><s>500.00 руб.</s> </p>
-                        <p><strong>450.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span>
-                        <a href="#" class="btn add-to-cart">
-                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                width="25" height="25">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-goods">
-        <div class="goods-content">
-            <div>
-                <img src="../deps/images/goods/krevetki tempura.jpg" class="image-container-goods" alt="...">
-                <div>
-                    <a href="../goods/product.html">
-                        <p class="font-links">Темпура с креветками</p>
-                    </a>
-                    <p class="card-text text-truncate">Сочные креветки, обжаренные в хрустящем кляре, подаются с соусом для темпуры.
-                    </p>
-                    <p class="product_id">id: 02267</p>
-                    <div class="d-flex justify-content-between">
-                        <p><s>500.00 руб.</s> </p>
-                        <p><strong>450.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span>
-                        <a href="#" class="btn add-to-cart">
-                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                width="25" height="25">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-goods">
-        <div class="goods-content">
-            <div>
-                <img src="../deps/images/goods/miso soup chicken.jpg" class="image-container-goods" alt="...">
-                <div>
-                    <a href="../goods/product.html">
-                        <p class="font-links">Суп мисо с курицей</p>
-                    </a>
-                    <p class="card-text text-truncate">Традиционный японский суп на основе мисо-пасты с добавлением курицы, водорослей нори, тофу и зеленого лука. 
-
-                    </p>
-                    <p class="product_id">id: 02268</p>
-                    <div class="d-flex justify-content-between">
-                        <p><s>350.00 руб.</s> </p>
-                        <p><strong>315.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span>
-                        <a href="#" class="btn add-to-cart">
-                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                width="25" height="25">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 <!-- Вторая строка -->
 <div class="row-goods">
+    {% for product in goods_2 %}
     <div class="container-goods">
         <div class="goods-content">
             <div>
-                <img src="../deps/images/goods/cheesecake tea.jpg" class="image-container-goods" alt="...">
+                <img src="{% static product.image %}" class="image-container-goods" alt="...">
                 <div>
                     <a href="../goods/product.html">
-                        <p class="font-links">Чизкейк с зелёным чаем</p>
+                        <p class="font-links">{{ product.name }}</p>
                     </a>
-                    <p class="card-text text-truncate">Воздушный чизкейк с нежным вкусом зеленого чая, подается с соусом из зеленого чая.</p>
-                    <p class="product_id">id: 02269</p>
+                    <p class="card-text text-truncate">{{ product.description }}</p>
+                    <p class="product_id">id: 02265</p>
                     <div class="d-flex justify-content-between">
-                        <p><s>300.00 руб.</s> </p>
-                        <p><strong>270.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span>
-                        <a href="#" class="btn add-to-cart">
-                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                width="25" height="25">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Карта товара -->
-    <div class="container-goods">
-        <div class="goods-content">
-            <div>
-                <img src="../deps/images/goods/drakon.jpg" class="image-container-goods" alt="...">
-                <div>
-                    <a href="../goods/product.html">
-                        <p class="font-links">Роллы «Дракон»</p>
-                    </a>
-                    <p class="card-text text-truncate">Классические роллы с нежным угрем, хрустящим огурцом и кремовым авокадо. Икра тобико придает пикантность и праздничный вид.</p>
-                    <p class="product_id">id: 02270</p>
-                    <div class="d-flex justify-content-between">
-                        <p><s>400.00 руб.</s> </p>
+                        {% comment %} <p><s>400.00 руб.</s> </p>
                         <p><strong>360.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span>
+                        <span class="text-red">Скидка 10.00 %</span> {% endcomment %}
+                        <p><strong>{{ product.price }} руб.</strong></p>
                         <a href="#" class="btn add-to-cart">
-                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                            <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
                                 width="25" height="25">
                         </a>
                     </div>
@@ -187,56 +95,37 @@
             </div>
         </div>
     </div>
-    <div class="container-goods">
-        <div class="goods-content">
-            <div>
-                <img src="../deps/images/goods/ceaser.jpg" class="image-container-goods" alt="...">
-                <div>
-                    <a href="../goods/product.html">
-                        <p class="font-links">Роллы «Цезарь»</p>
-                    </a>
-                    <p class="card-text text-truncate">Необычное сочетание японских и европейских вкусов: сочная курица, пикантный сыр Пармезан и свежие овощи.
-                    </p>
-                    <p class="product_id">id: 02271</p>
-                    <div class="d-flex justify-content-between">
-                        <p><s>350.00 руб.</s> </p>
-                        <p><strong>315.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span>
-                        <a href="#" class="btn add-to-cart">
-                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                width="25" height="25">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-goods">
-        <div class="goods-content">
-            <div>
-                <img src="../deps/images/goods/nigiri krevetka.jpg" class="image-container-goods" alt="...">
-                <div>
-                    <a href="../goods/product.html">
-                        <p class="font-links">Нигири с креветкой</p>
-                    </a>
-                    <p class="card-text text-truncate">Нежное и сочное нигири с креветкой на подушке из риса. 
-                    </p>
-                    <p class="product_id">id: 02272</p>
-                    <div class="d-flex justify-content-between">
-                        <p><s>160.00 руб.</s> </p>
-                        <p><strong>144.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span>
-                        <a href="#" class="btn add-to-cart">
-                            <img src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                width="25" height="25">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
-    
+
+<div class="row-goods">
+    {% for product in goods_3 %}
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="{% static product.image %}" class="image-container-goods" alt="...">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">{{ product.name }}</p>
+                    </a>
+                    <p class="card-text text-truncate">{{ product.description }}</p>
+                    <p class="product_id">id: 02265</p>
+                    <div class="d-flex justify-content-between">
+                        {% comment %} <p><s>400.00 руб.</s> </p>
+                        <p><strong>360.00 руб.</strong></p>
+                        <span class="text-red">Скидка 10.00 %</span> {% endcomment %}
+                        <p><strong>{{ product.price }} руб.</strong></p>
+                        <a href="#" class="btn add-to-cart">
+                            <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 <!-- Пагинация -->
 <nav aria-label="Page navigation example">
     <div class="container-pagi"> 

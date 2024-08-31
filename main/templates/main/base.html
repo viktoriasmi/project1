@@ -27,13 +27,9 @@
     <nav class="menu">
         <a id="menuButton">Меню</a>
         <ul id="menuList" class="dropdown-content">
-            <li><a href="{% url "catalog:index" %}">Все блюда</a></li>
-            <li><a href="{% url "catalog:index" %}">Суши и роллы</a></li>
-            <li><a href="{% url "catalog:index" %}">Салаты</a></li>
-            <li><a href="{% url "catalog:index" %}">Горячие блюда</a></li>
-            <li><a href="{% url "catalog:index" %}">Десерты</a></li>
-            <li><a href="{% url "catalog:index" %}">Напитки</a></li>
-            <li><a href="{% url "catalog:index" %}">Аксессуары</a></li>
+            {% for category in categories %}
+            <li><a href="{% url "catalog:index" %}">{{category.name}}</a></li>
+            {% endfor %}
         </ul>
         <a class="text" href="carts/cart.html">Корзина</a> 
         
@@ -50,7 +46,7 @@
         <a id="profileButton">Мой профиль</a>
         <ul id="profileList" class="dropdown-content">
             <li><a href="users/profile.html">Личный кабинет</a></li>
-            <li><a href="#">Админ</a></li>
+            <li><a href="{% url "admin:index" %}">Админ</a></li>
             <hr>
             <li><a href="#">Выйти</a></li>
         </ul>
