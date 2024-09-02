@@ -3,11 +3,22 @@
 
 {% block content %}
 <div class="container">
-    <img src="deps/images/goods/california.jpg" class="image-left" alt="img">
+    <img src="{{ product.image.url }}" class="image-left" alt="img">
     <div class="justify-content-center">
-        <p>Цена: <strong>400.00 руб.</strong></p>
-        <h1>Роллы «Калифорния»</h1>
-        <p>Классические роллы с крабовыми палочками, авокадо и огурцом, завернутые в рис и нори, подаются с кунжутом.</p>
+        <h1>{{ product.name }}</h1>
+        <h3>{{ product.description }}</h3>
+        <p>Ингредиенты: {{ product.ingridients }}</p>
+        <p>id: {{ product.display_id }}</p>
+        <div>
+            {% if product.discount %}
+            <p><s>{{ product.price }} руб.</s> </p>
+            <p><strong>{{ product.sell_price }} руб.</strong></p>
+            <span class="text-red">Скидка {{ product.discount }} %</span> 
+            {% else %}
+            <p><strong>{{ product.price }} руб.</strong></p>
+            {% endif %}
+        </div>
+        <p></p>
         <a href="#" class="button-reg">Добавить в корзину</a>
     </div>
 </div>
