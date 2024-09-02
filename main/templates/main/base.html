@@ -30,7 +30,7 @@
         <ul id="menuList" class="dropdown-content">
             {% tag_categories as categories %}
             {% for category in categories %}
-            <li><a href="{% url "catalog:index" %}">{{category.name}}</a></li>
+            <li><a href="{% url "catalog:index" category.slug %}">{{category.name}}</a></li>
             {% endfor %}
         </ul>
         <a class="text" href="carts/cart.html">Корзина</a> 
