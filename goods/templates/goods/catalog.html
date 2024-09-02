@@ -41,52 +41,26 @@
       <p></p>
 
     <div class="row-goods">
-    {% for product in goods_1 %}
+    {% for product in goods|slice:":4" %}
     <div class="container-goods">
         <div class="goods-content">
             <div>
-                <img src="{% static product.image %}" class="image-container-goods" alt="...">
+                <img src="{{ product.image.url }}" class="image-container-goods" alt="{{ product.name }}">
                 <div>
                     <a href="../goods/product.html">
                         <p class="font-links">{{ product.name }}</p>
                     </a>
                     <p class="card-text text-truncate">{{ product.description }}</p>
-                    <p class="product_id">id: 02265</p>
-                    <div class="d-flex justify-content-between">
-                        {% comment %} <p><s>400.00 руб.</s> </p>
-                        <p><strong>360.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span> {% endcomment %}
+                    <p>id: {{ product.display_id }}</p>
+                    <div>
+                        {% if product.discount %}
+                        <p><s>{{ product.price }} руб.</s> </p>
+                        <p><strong>{{ product.sell_price }} руб.</strong></p>
+                        <span class="text-red">Скидка {{ product.discount }} %</span> 
+                        {% else %}
                         <p><strong>{{ product.price }} руб.</strong></p>
-                        <a href="#" class="btn add-to-cart">
-                            <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
-                                width="25" height="25">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-</div>
-<!-- Вторая строка -->
-<div class="row-goods">
-    {% for product in goods_2 %}
-    <div class="container-goods">
-        <div class="goods-content">
-            <div>
-                <img src="{% static product.image %}" class="image-container-goods" alt="...">
-                <div>
-                    <a href="../goods/product.html">
-                        <p class="font-links">{{ product.name }}</p>
-                    </a>
-                    <p class="card-text text-truncate">{{ product.description }}</p>
-                    <p class="product_id">id: 02265</p>
-                    <div class="d-flex justify-content-between">
-                        {% comment %} <p><s>400.00 руб.</s> </p>
-                        <p><strong>360.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span> {% endcomment %}
-                        <p><strong>{{ product.price }} руб.</strong></p>
-                        <a href="#" class="btn add-to-cart">
+                        {% endif %}
+                        <a href="#">
                             <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
                                 width="25" height="25">
                         </a>
@@ -99,23 +73,26 @@
 </div>
 
 <div class="row-goods">
-    {% for product in goods_3 %}
+    {% for product in goods|slice:"4:8" %}
     <div class="container-goods">
         <div class="goods-content">
             <div>
-                <img src="{% static product.image %}" class="image-container-goods" alt="...">
+                <img src="{{ product.image.url }}" class="image-container-goods" alt="{{ product.name }}">
                 <div>
                     <a href="../goods/product.html">
                         <p class="font-links">{{ product.name }}</p>
                     </a>
                     <p class="card-text text-truncate">{{ product.description }}</p>
-                    <p class="product_id">id: 02265</p>
-                    <div class="d-flex justify-content-between">
-                        {% comment %} <p><s>400.00 руб.</s> </p>
-                        <p><strong>360.00 руб.</strong></p>
-                        <span class="text-red">Скидка 10.00 %</span> {% endcomment %}
+                    <p>id: {{ product.display_id }}</p>
+                    <div>
+                        {% if product.discount %}
+                        <p><s>{{ product.price }} руб.</s> </p>
+                        <p><strong>{{ product.sell_price }} руб.</strong></p>
+                        <span class="text-red">Скидка {{ product.discount }} %</span> 
+                        {% else %}
                         <p><strong>{{ product.price }} руб.</strong></p>
-                        <a href="#" class="btn add-to-cart">
+                        {% endif %}
+                        <a href="#">
                             <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
                                 width="25" height="25">
                         </a>
@@ -126,6 +103,167 @@
     </div>
     {% endfor %}
 </div>
+
+<div class="row-goods">
+    {% for product in goods|slice:"8:12" %}
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="{{ product.image.url }}" class="image-container-goods" alt="{{ product.name }}">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">{{ product.name }}</p>
+                    </a>
+                    <p class="card-text text-truncate">{{ product.description }}</p>
+                    <p>id: {{ product.display_id }}</p>
+                    <div>
+                        {% if product.discount %}
+                        <p><s>{{ product.price }} руб.</s> </p>
+                        <p><strong>{{ product.sell_price }} руб.</strong></p>
+                        <span class="text-red">Скидка {{ product.discount }} %</span> 
+                        {% else %}
+                        <p><strong>{{ product.price }} руб.</strong></p>
+                        {% endif %}
+                        <a href="#">
+                            <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row-goods">
+    {% for product in goods|slice:"12:16" %}
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="{{ product.image.url }}" class="image-container-goods" alt="{{ product.name }}">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">{{ product.name }}</p>
+                    </a>
+                    <p class="card-text text-truncate">{{ product.description }}</p>
+                    <p>id: {{ product.display_id }}</p>
+                    <div>
+                        {% if product.discount %}
+                        <p><s>{{ product.price }} руб.</s> </p>
+                        <p><strong>{{ product.sell_price }} руб.</strong></p>
+                        <span class="text-red">Скидка {{ product.discount }} %</span> 
+                        {% else %}
+                        <p><strong>{{ product.price }} руб.</strong></p>
+                        {% endif %}
+                        <a href="#">
+                            <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row-goods">
+    {% for product in goods|slice:"16:20" %}
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="{{ product.image.url }}" class="image-container-goods" alt="{{ product.name }}">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">{{ product.name }}</p>
+                    </a>
+                    <p class="card-text text-truncate">{{ product.description }}</p>
+                    <p>id: {{ product.display_id }}</p>
+                    <div>
+                        {% if product.discount %}
+                        <p><s>{{ product.price }} руб.</s> </p>
+                        <p><strong>{{ product.sell_price }} руб.</strong></p>
+                        <span class="text-red">Скидка {{ product.discount }} %</span> 
+                        {% else %}
+                        <p><strong>{{ product.price }} руб.</strong></p>
+                        {% endif %}
+                        <a href="#">
+                            <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row-goods">
+    {% for product in goods|slice:"20:24" %}
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="{{ product.image.url }}" class="image-container-goods" alt="{{ product.name }}">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">{{ product.name }}</p>
+                    </a>
+                    <p class="card-text text-truncate">{{ product.description }}</p>
+                    <p>id: {{ product.display_id }}</p>
+                    <div>
+                        {% if product.discount %}
+                        <p><s>{{ product.price }} руб.</s> </p>
+                        <p><strong>{{ product.sell_price }} руб.</strong></p>
+                        <span class="text-red">Скидка {{ product.discount }} %</span> 
+                        {% else %}
+                        <p><strong>{{ product.price }} руб.</strong></p>
+                        {% endif %}
+                        <a href="#">
+                            <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row-goods">
+    {% for product in goods|slice:"24:28" %}
+    <div class="container-goods">
+        <div class="goods-content">
+            <div>
+                <img src="{{ product.image.url }}" class="image-container-goods" alt="{{ product.name }}">
+                <div>
+                    <a href="../goods/product.html">
+                        <p class="font-links">{{ product.name }}</p>
+                    </a>
+                    <p class="card-text text-truncate">{{ product.description }}</p>
+                    <p>id: {{ product.display_id }}</p>
+                    <div>
+                        {% if product.discount %}
+                        <p><s>{{ product.price }} руб.</s> </p>
+                        <p><strong>{{ product.sell_price }} руб.</strong></p>
+                        <span class="text-red">Скидка {{ product.discount }} %</span> 
+                        {% else %}
+                        <p><strong>{{ product.price }} руб.</strong></p>
+                        {% endif %}
+                        <a href="#">
+                            <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
+                                width="25" height="25">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
 <!-- Пагинация -->
 <nav aria-label="Page navigation example">
     <div class="container-pagi"> 
