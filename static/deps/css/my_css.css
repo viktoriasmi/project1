@@ -7,7 +7,7 @@
     text-decoration: none;
 }
 .text-red {
-    color: red;
+    color: red !important;
     text-decoration: none;
 }
 
@@ -168,6 +168,7 @@
 
 .container-goods {
     display: flex;
+    flex: 1 0 25%;
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
@@ -208,7 +209,8 @@
     display: center;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    max-height: 300px;
+    max-width: 600px;
 }
 
 img {
@@ -339,6 +341,7 @@ img {
 .row-goods {
     display:flex;
     padding: 10px 150px;
+    flex-wrap: wrap;
 }
 
 .row {

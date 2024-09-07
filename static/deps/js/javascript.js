@@ -24,3 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
     filterList.style.display = filterList.style.display === 'none' ? 'block' : 'none';
   });
 });
+
+
+
