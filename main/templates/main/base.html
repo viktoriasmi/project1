@@ -15,11 +15,17 @@
 </head>
 
 <body class="body text main-font">
-    <div class="top-right">
-        <input type="text" placeholder="Поиск..." class="search-box">
-        <a href="users/registration.html" class="button-reg">Регистрация</a>
-        <a href="users/login.html" class="button-reg">Войти</a>
+    <div class="top-left">
+        <form role="search" action="{% url "catalog:search" %}" method="get">
+            <input class="search-box" type="search" name="q" placeholder="Поиск...">
+            <button class="button-reg" type="submit">Поиск</button>
+        </form>
     </div>
+    <div class="top-right">
+        <a href="users/registration.html" class="button-reg" type="submit">Регистрация</a>
+        <a href="users/login.html" class="button-reg" type="submit">Войти</a> 
+    </div>
+    
     <div style="position: absolute; z-index: 100;">
         <!-- Черный фон -->
     </div>

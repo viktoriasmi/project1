@@ -9,11 +9,13 @@
         <button id="filterButton" class="button-fil" type="button">
           Фильтры
         </button>
-        <form action="{% url "catalog:index" slug_url %}" method="get" class="dropdown-content-filter">
+        <form action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-content-filter">
           <div>
             <input type="checkbox" name="on_sale" id="flexCheckDefault" value="on"
             {% if request.GET.on_sale == 'on' %} checked {% endif %}>
-            {% comment %} <input type="hidden" name="q" value="request.GET.q"> {% endcomment %}
+            {% if request.GET.q %}
+            <input type="hidden" name="q" value="{{ request.GET.q }}"> 
+            {% endif %}
             <label for="flexCheckDefault">
               Товары по акции
             </label>
