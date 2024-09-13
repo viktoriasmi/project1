@@ -47,6 +47,13 @@
       </div>
       <p></p>
 
+
+    {% if request.GET.q %}
+    <h2 class="row-goods justify-content-center">Результаты поиска по запросу {{ request.GET.q }}</h2>
+    {% if not goods %}
+    <h3 class="row-goods justify-content-center">По запросу ничего не найдено</h3>
+    {% endif %}
+    {% endif %}  
     <div class="row-goods">
     {% for product in goods %}
     <div class="container-goods">
@@ -55,9 +62,18 @@
                 <img src="{{ product.image.url }}" class="image-container-goods" alt="{{ product.name }}">
                 <div>
                     <a href="{% url "catalog:product" product.slug %}">
-                        <p class="font-links">{{ product.name }}</p>
+                        <p class="font-links">
+                          {% autoescape off %}
+                          {% if product.headline %}{{product.headline}}{% else %}{{ product.name }}{% endif %}
+                          {% endautoescape %}
+                        </p>
                     </a>
-                    <p>{{ product.description|truncatechars:50 }}</p>
+                    <p>
+                      {% autoescape off %}
+                          {% if product.bodyline %}{{product.bodyline|truncatechars:170}}{% else %}{{ product.description|truncatechars:50 }}{% endif %}
+                          {% endautoescape %}
+                      
+                    </p>
                     <p>id: {{ product.display_id }}</p>
                     <div>
                         {% if product.discount %}
