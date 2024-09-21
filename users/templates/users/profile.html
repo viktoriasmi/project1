@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div>
+    <div class="container">
+      <div>
+        <!-- Профиль с данными пользователя -->
+        <div>
+          <div>
+            <h2 class="text-center">Профиль пользователя</h2>
+            <form>
+              <div>
+                <div class="avatar-container">
+                    <img src="{% static "deps/images/baseavatar.png" %}" alt="Аватар пользователя" style="max-width: 150px;">
+                    <label for="avatar" class="button-reg">Выбрать файл</label>
+                    <input type="file" id="avatar" accept="image/" style="display: none;"> 
+                  </div>
+                <p></p>
+                <div class="row">
+                  <div>
+                    <label for="firstName">Имя</label>
+                    <input type="text" class="search-box" id="firstName"
+                           placeholder="Введите ваше имя" value="" required>
+                  </div>
+                  <div>
+                    <label for="lastName">Фамилия</label>
+                    <input type="text" class="search-box" id="lastName"
+                           placeholder="Введите вашу фамилию" value="" required>
+                  </div>
+                </div>
+                <p></p>
+                <div class="row">
+                  <div>
+                    <label for="username">Имя пользователя</label>
+                    <input type="text" class="search-box" id="username"
+                           placeholder="Введите ваше имя пользователя" value="" required>
+                  </div>
+                  <div>
+                    <label for="email">Email</label>
+                    <input type="email" class="search-box" id="email"
+                           placeholder="Введите ваш email" value="" required>
+                  </div>
+                </div>
+  
+  
+                <p></p>
+  
+              </div>
+              <button type="submit" class="button-reg">Сохранить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+ <p></p>
+            <!-- Корзина -->
+            <div class="container">
+                <div class="justify-content-center">
+                    <h2 class="text-center">Корзина</h2>
+                    <div id="cart-items-container">
+                        <!-- Разметка корзины -->
+                        
+            <!-- Оформленные заказы -->
+       <p></p>
+            
+       <div class="container">
+        <div class="justify-content-center">
+            <h2 class="text-center">Мои заказы</h2>
+                    <!-- Разметка заказов -->
+                    <div>
+                        <div id="accordionExample">
+                            <div>
+                                <h2 id="heading1">
+                                    <button class="button-reg-bigger" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                        Заказ № 256 - 09 сентября 2024 9:04 | Статус:<strong> В
+                                            обработке</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapse1"
+                                    aria-labelledby="heading1" data-bs-parent="#accordionExample">
+                                    <div>
+                                        <table class="text-align-center">
+                                            <thead>
+                                                <tr>
+                                                    <th>Товар</th>
+                                                    <th>Количество</th>
+                                                    <th>Цена</th>
+                                                    <th>Общая стоимость</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a class="font-links" href="#">Роллы «Калифорния»</a>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>255.00 руб.</td>
+                                                    <td>255.00 руб.</td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div>
+                                            <p><strong>Итого:</strong></p>
+                                            <p><strong>255.00 руб.</strong></p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h2 id="heading2">
+                                    <button class="button-reg-bigger" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false"
+                                        aria-controls="collapse2">
+                                        Заказ № 248 - 01 августа 2024 11:28 | Статус: <strong>Получен</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapse2" aria-labelledby="heading2"
+                                    data-bs-parent="#accordionExample">
+                                    <div>
+                                        <table class="text-align-center">
+                                            <thead>
+                                                <tr>
+                                                    <th>Товар</th>
+                                                    <th>Количество</th>
+                                                    <th>Цена</th>
+                                                    <th>Общая стоимость</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a class="font-links" href="#">Суши с угрём</a></td>
+                                                    <td>2</td>
+                                                    <td>400.00 руб.</td>
+                                                    <td>800.00 руб.</td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Закончилась разметка заказов -->
+                </div>
+          
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

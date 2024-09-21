@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div>
+        <div>
+            <!-- Контент на странице -->
+            <div>
+                <div>
+                    <div class="justify-content-center">
+                        <div>
+                            <h2 class="text-center">Авторизация</h2>
+                            <form>
+                                <div>
+                                    <label for="username" class="form-label">Имя пользователя</label>
+                                    <p></p>
+                                    <input type="text" class="search-box-1" id="username"
+                                        placeholder="Введите ваше имя пользователя" required>
+                                </div>
+                                <p></p>
+                                <div>
+                                    <label for="password" class="form-label">Пароль</label>
+                                    <p></p>
+                                    <input type="password" class="search-box-1" id="password"
+                                        placeholder="Введите ваш пароль" required>
+                                </div>
+                                <p></p>
+                                <button type="submit" class="button-reg">Войти</button>
+                            </form>
+                            <p></p>
+                            <div>
+                                <a class="font-links" href="#">Забыли пароль?</a> | <a class="font-links" href="{% url "users:registration" %}">Создать аккаунт</a>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <p>Или авторизуйтесь через:</p>
+                                <a class="font-links" href="#">
+                                  <img src="{% static "deps/icons/google.svg" %}" alt="Catalog Icon" width="16" height="16">
+                                  Google 
+                                </a>
+                                <a class="font-links" href="#">
+                                  <img src="{% static "deps/icons/vk.svg" %}" alt="Catalog Icon" width="16" height="16">
+                                  Вконтакте 
+                                </a>
+                                <a class="font-links" href="#">
+                                  <img src="{% static "deps/icons/yandex.svg" %}" alt="Catalog Icon" width="16" height="16">
+                                  Яндекс 
+                                </a>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

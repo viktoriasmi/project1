@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% load goods_tags %}
 
@@ -95,7 +95,8 @@
     {% endfor %}
 </div>
 
-<nav aria-label="Page navigation">
+{% if goods %}
+  <nav aria-label="Page navigation">
     <div class="container-pagi"> 
         <ul style="display: flex; grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); gap: 10px;" class="font-links"> 
             <li class="{% if not goods.has_previous %} disabled {% endif %} ">
@@ -117,7 +118,9 @@
           </li>
         </ul>
     </div>
-</nav>
+  </nav>
+{% endif %}
+
 </div>
 </div>
 </div>

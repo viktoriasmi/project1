@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div>
+        <div>
+            <div>
+                <div class="justify-content-center">
+                    <div>
+                        <h2 class="text-center">Регистрация</h2>
+                        <form>
+                            <div>
+                                <div>
+                                    <label for="firstName">Имя*</label>
+                                    <input type="text" class="search-box-1" id="firstName"
+                                        placeholder="Введите ваше имя" required>
+                                <p></p>
+                                    <label for="lastName">Фамилия*</label>
+                                    <input type="text" class="search-box-1" id="lastName"
+                                        placeholder="Введите вашу фамилию" required>
+                                </div>
+                                <p></p>
+                                <div>
+                                    <label for="username">Имя пользователя*</label>
+                                    <input type="text" class="search-box-1" id="username"
+                                        placeholder="Введите ваше имя пользователя" required>
+                                <p></p>
+                                    <label for="email">Email*</label>
+                                    <input type="email" class="search-box-1" id="email"
+                                        placeholder="Введите ваш email" required>
+                                </div>
+                                <p></p>
+                                <div>
+                                    <label for="password1">Пароль*</label>
+                                    <input type="password" class="search-box-1" id="password1"
+                                        placeholder="Введите пароль" required>
+                                    <p></p>
+                                    <label for="password2">Подтверждение пароля*</label>
+                                    <input type="password" class="search-box-1" id="password2"
+                                        placeholder="Подтвердите пароль" required>
+                                </div>
+                                <p></p>
+                            </div>
+                            <p></p>
+                            <button type="submit" class="button-reg-bigger">Зарегистрироваться</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

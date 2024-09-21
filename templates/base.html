@@ -22,8 +22,8 @@
         </form>
     </div>
     <div class="top-right">
-        <a href="users/registration.html" class="button-reg" type="submit">Регистрация</a>
-        <a href="users/login.html" class="button-reg" type="submit">Войти</a> 
+        <a href="{% url "users:registration" %}" class="button-reg" type="submit">Регистрация</a>
+        <a href="{% url "users:login" %}" class="button-reg" type="submit">Войти</a> 
     </div>
     
     <div style="position: absolute; z-index: 100;">
@@ -53,10 +53,10 @@
 
         <a id="profileButton">Мой профиль</a>
         <ul id="profileList" class="dropdown-content">
-            <li><a href="users/profile.html">Личный кабинет</a></li>
+            <li><a href="{% url "users:profile" %}">Личный кабинет</a></li>
             <li><a href="{% url "admin:index" %}">Админ</a></li>
             <hr>
-            <li><a href="#">Выйти</a></li>
+            <li><a href="{% url "users:logout" %}">Выйти</a></li>
         </ul>
     </nav>    
     <p></p>
