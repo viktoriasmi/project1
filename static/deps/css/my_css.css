@@ -11,6 +11,13 @@
     text-decoration: none;
 }
 
+.font-links-nound{
+    text-decoration: none; 
+    text-decoration-color: white; 
+    color: white;
+    list-style: none;
+  }
+
 .font-links{
     text-decoration: underline; 
     text-decoration-color: white; 
@@ -61,7 +68,7 @@
 .top-left {
     position: absolute;
     top: 100px;
-    left: 1210px;
+    left: 1450px;
 }
 
 .menu {

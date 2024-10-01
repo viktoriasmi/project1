@@ -10,36 +10,67 @@
                 <div class="justify-content-center">
                     <div>
                         <h2 class="text-center">Регистрация</h2>
-                        <form>
+                        <form action="{% url "user:registration" %}" method="post">
+                            {% csrf_token %}
                             <div>
                                 <div>
-                                    <label for="firstName">Имя*</label>
-                                    <input type="text" class="search-box-1" id="firstName"
+                                    <label for="id_first_name">Имя*</label>
+                                    <input type="text" class="search-box-1" id="id_first_name"
+                                        value="{% if form.first_name.value %}{{form.first_name.value}}{% endif %}"
+                                        name="first_name"
                                         placeholder="Введите ваше имя" required>
+                                        {% if form.first_name.errors %}
+                                        <div class="text-red">{{form.first_name.errors}}</div>
+                                        {% endif %}
                                 <p></p>
-                                    <label for="lastName">Фамилия*</label>
-                                    <input type="text" class="search-box-1" id="lastName"
+                                    <label for="id_last_name">Фамилия*</label>
+                                    <input type="text" class="search-box-1" id="id_last_name"
+                                        value="{% if form.last_name.value %}{{form.last_name.value}}{% endif %}"
+                                        name="last_name"
                                         placeholder="Введите вашу фамилию" required>
+                                        {% if form.last_name.errors %}
+                                        <div class="text-red">{{form.last_name.errors}}</div>
+                                        {% endif %}
                                 </div>
                                 <p></p>
                                 <div>
-                                    <label for="username">Имя пользователя*</label>
-                                    <input type="text" class="search-box-1" id="username"
+                                    <label for="id_username">Имя пользователя*</label>
+                                    <input type="text" class="search-box-1" id="id_username"
+                                        value="{% if form.username.value %}{{form.username.value}}{% endif %}"
+                                        name="username"
                                         placeholder="Введите ваше имя пользователя" required>
+                                        {% if form.username.errors %}
+                                        <div class="text-red">{{form.username.errors}}</div>
+                                        {% endif %}
                                 <p></p>
-                                    <label for="email">Email*</label>
-                                    <input type="email" class="search-box-1" id="email"
+                                    <label for="id_email">Email*</label>
+                                    <input type="email" class="search-box-1" id="id_email"
+                                        value="{% if form.email.value %}{{form.email.value}}{% endif %}"
+                                        name="email"
                                         placeholder="Введите ваш email" required>
+                                        {% if form.email.errors %}
+                                        <div class="text-red">{{form.email.errors}}</div>
+                                        {% endif %}
                                 </div>
                                 <p></p>
                                 <div>
-                                    <label for="password1">Пароль*</label>
-                                    <input type="password" class="search-box-1" id="password1"
+                                    <label for="id_password1">Пароль*</label>
+                                    <input type="password" class="search-box-1" id="id_password1"
+                                        value="{% if form.password1.value %}{{form.password1.value}}{% endif %}"
+                                        name="password1"
                                         placeholder="Введите пароль" required>
+                                        {% if form.password1.errors %}
+                                        <div class="text-red">{{form.password1.errors}}</div>
+                                        {% endif %}
                                     <p></p>
-                                    <label for="password2">Подтверждение пароля*</label>
-                                    <input type="password" class="search-box-1" id="password2"
+                                    <label for="id_password2">Подтверждение пароля*</label>
+                                    <input type="password" class="search-box-1" id="id_password2"
+                                    value="{% if form.password2.value %}{{form.password2.value}}{% endif %}"
+                                        name="password2"
                                         placeholder="Подтвердите пароль" required>
+                                        {% if form.password2.errors %}
+                                        <div class="text-red">{{form.password2.errors}}</div>
+                                        {% endif %}
                                 </div>
                                 <p></p>
                             </div>

@@ -21,10 +21,14 @@
             <button class="button-reg" type="submit">Поиск</button>
         </form>
     </div>
+    {% comment %} {% if user.is_authenticated %}
+    {% else %}
     <div class="top-right">
         <a href="{% url "users:registration" %}" class="button-reg" type="submit">Регистрация</a>
         <a href="{% url "users:login" %}" class="button-reg" type="submit">Войти</a> 
     </div>
+    {% endif %} {% endcomment %}
+    
     
     <div style="position: absolute; z-index: 100;">
         <!-- Черный фон -->
@@ -39,7 +43,7 @@
             <li><a href="{% url "catalog:index" category.slug %}">{{category.name}}</a></li>
             {% endfor %}
         </ul>
-        <a class="text" href="carts/cart.html">Корзина</a> 
+        <a class="text" href="#">Доставка и оплата</a>
         
         <a href="{% url "main:index" %}"><img src="{% static "deps/images/logotype-correct.png" %}" alt="img" /></a>
         
@@ -47,17 +51,24 @@
         <a id="infoButton">Информация</a>
         <ul id="infoList" class="dropdown-content">
             <li><a href="{% url "main:about" %}">Контактная информация</a></li>
-            <li><a href="#">Доставка и оплата</a></li>
             <li><a href="#">Новости</a></li>
         </ul>
 
+        {% if not user.is_authenticated %}
+            <a href="{% url "users:login" %}" class="font-links-nound">Войти</a>
+        {% else %}
         <a id="profileButton">Мой профиль</a>
         <ul id="profileList" class="dropdown-content">
             <li><a href="{% url "users:profile" %}">Личный кабинет</a></li>
-            <li><a href="{% url "admin:index" %}">Админ</a></li>
+            <li><a href="carts/cart.html">Корзина</a></li>
+            {% if user.is_admin or user.is_staff %}
+                <li><a href="{% url "admin:index" %}">Админ</a></li>
+            {% endif %}
             <hr>
             <li><a href="{% url "users:logout" %}">Выйти</a></li>
         </ul>
+        {% endif %}
+        
     </nav>    
     <p></p>
     <div style="height: 40px;"></div>
