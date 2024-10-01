@@ -1,0 +1,23 @@
+{% load static %}
+
+{% if form.non_field_errors %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div>
+            <div class="text-red" role="alert" id="alertBox">
+                {{ form.non_field_errors }}
+                <button type="button" class="button-fil right" aria-label="Close" onclick="closeAlert()">x</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<script>
+    function closeAlert() {
+        const alertBox = document.getElementById('alertBox');
+        if (alertBox) {
+            alertBox.style.display = 'none';
+        }
+    }
+</script>

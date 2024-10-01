@@ -9,21 +9,47 @@ document.addEventListener('DOMContentLoaded', function() {
   const filterList = document.querySelector('.dropdown-content-filter'); 
 
   menuButton.addEventListener('click', () => {
-    menuList.style.display = menuList.style.display === 'none' ? 'block' : 'none';
+    if (menuList.style.display === 'block') {
+      menuList.style.display = 'none';
+    } else {
+      closeAllMenus();
+      menuList.style.display = 'block';
+    }
   });
 
   infoButton.addEventListener('click', () => {
-    infoList.style.display = infoList.style.display === 'none' ? 'block' : 'none';
+    if (infoList.style.display === 'block') {
+      infoList.style.display = 'none';
+    } else {
+      closeAllMenus();
+      infoList.style.display = 'block';
+    }
   });
 
   profileButton.addEventListener('click', () => {
-    profileList.style.display = profileList.style.display === 'none' ? 'block' : 'none';
+    if (profileList.style.display === 'block') {
+      profileList.style.display = 'none';
+    } else {
+      closeAllMenus();
+      profileList.style.display = 'block';
+    }
   });
 
   filterButton.addEventListener('click', () => {
-    filterList.style.display = filterList.style.display === 'none' ? 'block' : 'none';
+    if (filterList.style.display === 'block') {
+      filterList.style.display = 'none';
+    } else {
+      closeAllMenus();
+      filterList.style.display = 'block';
+    }
   });
+
+  function closeAllMenus() {
+    menuList.style.display = 'none';
+    infoList.style.display = 'none';
+    profileList.style.display = 'none';
+    if (filterList) {
+      filterList.style.display = 'none';
+    }
+  }
 });
-
-
-
