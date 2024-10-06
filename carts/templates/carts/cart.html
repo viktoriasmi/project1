@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-cart">
+    <div class="justify-content-center">
+        <h2 class="text-center">Корзина</h2>
+        <div id="cart-items-container">
+            <!-- Разметка корзины -->
+            <div>
+                <h5 class="font-size-1">Товар</h5>
+            </div>
+            <ul>
+                <li>
+                    <div class="text-center">
+                        <div class="cart-item">
+                            <span>
+                                <button type="button" class="button-reg" data-cart-id=""
+                                    data-cart-change-url="">-</button>
+                            </span>
+                            <input type="text" class="search-box" value="1" readonly>
+                            <span>
+                                <button type="button" class="button-reg" data-cart-id=""
+                                    data-cart-change-url="">+</button>
+                            </span>
+                            <span>x 100.00 = </span>
+                            <span>100.00 руб.</span>
+                            <a href="{% url "carts:cart_remove" %}" class="remove-from-cart" data-cart-id="">
+                                <img src="{% static "deps/icons/trash3-fill.svg" %}" alt="Catalog Icon" width="25" height="25">
+                            </a>
+                        </div>
+                    </div>
+        </div>
+        <div>
+            <div>
+                <p>Итого <strong>1</strong> товар(а) на сумму</p>
+                <h4><strong>100.00 руб.</strong></h4>
+                <a class="button-reg-bigger" href="../orders/create_order.html">
+                    Оформить заказ
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
