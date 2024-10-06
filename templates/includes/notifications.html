@@ -1,7 +1,7 @@
 {% load static %}
 
 {% if form.non_field_errors %}
-<div class="container">
+<div class="container" id="alertContainer">
     <div class="row justify-content-center">
         <div>
             <div class="text-red" role="alert" id="alertBox">
@@ -13,11 +13,42 @@
 </div>
 {% endif %}
 
+{% if messages %}
+<!-- Для оповещений -->
+<div class="container" id="alertContainer">
+    <div class="row justify-content-center">
+        <div>
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <div class="notification text-green" role="alert">
+                    {{ message }}
+                </div>
+                {% endif %}
+                {% if message.tags == 'warning' %}
+                <div class="notification text-red" role="alert">
+                    {{ message }}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<script>
+    setTimeout(() => {
+        const alertContainer = document.getElementById('alertContainer');
+        if (alertContainer) {
+            alertContainer.style.display = 'none';
+        }
+    }, 5000); 
+</script>
+{% endif %}
+
+
 <script>
     function closeAlert() {
-        const alertBox = document.getElementById('alertBox');
-        if (alertBox) {
-            alertBox.style.display = 'none';
+        const alertContainer = document.getElementById('alertContainer');
+        if (alertContainer) {
+            alertContainer.style.display = 'none';
         }
     }
 </script>

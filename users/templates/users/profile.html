@@ -10,37 +10,66 @@
         <div>
           <div>
             <h2 class="text-center">Профиль пользователя</h2>
-            <form>
-              <div>
-                <div class="avatar-container">
-                    <img src="{% static "deps/images/baseavatar.png" %}" alt="Аватар пользователя" style="max-width: 150px;">
-                    <label for="avatar" class="button-reg">Выбрать файл</label>
-                    <input type="file" id="avatar" accept="image/" style="display: none;"> 
-                  </div>
+            <form action="{% url "user:profile" %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div>
+                    <div class="avatar-container">
+                        {% if user.image %}
+                        <img src="{{ user.image.url }}" alt="Аватар пользователя" style="max-width: 150px;">
+                        {% else %}
+                        <img src="{% static "deps/images/baseavatar.png" %}" alt="Аватар пользователя" style="max-width: 150px;">
+                        {% endif %}
+                        
+                        <label for="id_image" class="button-reg">Загрузить изображение</label>
+                        <input type="file" id="id_image" accept="image/*" name='image' class="hidden-input">
+                        {% if form.image.errors %}
+                            <div class="text-red">{{ form.image.errors }}</div>
+                        {% endif %}
+                    </div>
+            
+                    <p></p>
+                    <button type="submit" class="button-reg">Сохранить</button>
+                </div>
                 <p></p>
                 <div class="row">
                   <div>
-                    <label for="firstName">Имя</label>
-                    <input type="text" class="search-box" id="firstName"
-                           placeholder="Введите ваше имя" value="" required>
+                    <label for="id_first_name">Имя</label>
+                    <input type="text" class="search-box" id="id_first_name"
+                        name='first_name'   
+                        placeholder="Введите ваше имя" value="{{ form.first_name.value }}" required>
+                        {% if form.first_name.errors %}
+                        <div class="text-red">{{form.first_name.errors}}</div>
+                        {% endif %}
                   </div>
                   <div>
-                    <label for="lastName">Фамилия</label>
-                    <input type="text" class="search-box" id="lastName"
-                           placeholder="Введите вашу фамилию" value="" required>
+                    <label for="id_last_name">Фамилия</label>
+                    <input type="text" class="search-box" id="id_last_name"
+                        name='last_name'   
+                        placeholder="Введите вашу фамилию" value="{{ form.last_name.value }}" required>
+                        {% if form.last_name.errors %}
+                        <div class="text-red">{{form.last_name.errors}}</div>
+                        {% endif %}
                   </div>
                 </div>
                 <p></p>
                 <div class="row">
                   <div>
-                    <label for="username">Имя пользователя</label>
-                    <input type="text" class="search-box" id="username"
-                           placeholder="Введите ваше имя пользователя" value="" required>
+                    <label for="id_username">Имя пользователя</label>
+                    <input type="text" class="search-box" id="id_username"
+                        name='username'   
+                        placeholder="Введите ваше имя пользователя" value="{{ form.username.value }}" required>
+                        {% if form.username.errors %}
+                        <div class="text-red">{{form.username.errors}}</div>
+                        {% endif %}
                   </div>
                   <div>
-                    <label for="email">Email</label>
-                    <input type="email" class="search-box" id="email"
-                           placeholder="Введите ваш email" value="" required>
+                    <label for="id_email">Email</label>
+                    <input type="email" class="search-box" id="id_email"
+                        name='email'   
+                        placeholder="Введите ваш email" value="{{ form.email.value }}" required>
+                        {% if form.email.errors %}
+                        <div class="text-red">{{form.email.errors}}</div>
+                        {% endif %}
                   </div>
                 </div>
   
@@ -153,3 +182,4 @@
 </div>
 
 {% endblock content %}
+
