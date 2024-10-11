@@ -83,7 +83,7 @@
                         {% else %}
                         <p><strong>{{ product.price }} руб.</strong></p>
                         {% endif %}
-                        <a href="#">
+                        <a href="{% url "carts:cart_add" product.slug %}">
                             <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
                                 width="25" height="25">
                         </a>

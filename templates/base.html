@@ -43,7 +43,8 @@
             <li><a href="{% url "catalog:index" category.slug %}">{{category.name}}</a></li>
             {% endfor %}
         </ul>
-        <a class="text" href="#">Доставка и оплата</a>
+        
+        <a class="font-links-nound" href="{% url "carts:cart" %}">Корзина</a>
         
         <a href="{% url "main:index" %}"><img src="{% static "deps/images/logotype-correct.png" %}" alt="img" /></a>
         
@@ -51,6 +52,7 @@
         <a id="infoButton">Информация</a>
         <ul id="infoList" class="dropdown-content">
             <li><a href="{% url "main:about" %}">Контактная информация</a></li>
+            <li>a href="#">Доставка и оплата</a></li>
             <li><a href="#">Новости</a></li>
         </ul>
 
@@ -60,7 +62,7 @@
         <a id="profileButton">Мой профиль</a>
         <ul id="profileList" class="dropdown-content">
             <li><a href="{% url "users:profile" %}">Личный кабинет</a></li>
-            <li><a href="{% url "carts:cart" %}">Корзина</a></li>
+            
             {% if user.is_admin or user.is_staff %}
                 <li><a href="{% url "admin:index" %}">Админ</a></li>
             {% endif %}

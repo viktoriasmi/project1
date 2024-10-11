@@ -19,7 +19,7 @@
             {% endif %}
         </div>
         <p></p>
-        <a href="#" class="button-reg">Добавить в корзину</a>
+        <a href="{% url "carts:cart_add" product.slug %}" class="button-reg">Добавить в корзину</a>
     </div>
 </div>
 {% endblock content %}

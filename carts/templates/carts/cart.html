@@ -1,14 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
+{% load carts_tags %}
 
 {% block content %}
+
+{% user_carts request as carts %}
+
 <div class="container-cart">
     <div class="justify-content-center">
         <h2 class="text-center">Корзина</h2>
         <div id="cart-items-container">
-            <!-- Разметка корзины -->
+           
+            {% for cart in carts %}
             <div>
-                <h5 class="font-size-1">Товар</h5>
+                <h5 class="font-size-1">{{ cart.product.name }}</h5>
             </div>
             <ul>
                 <li>
@@ -18,23 +23,27 @@
                                 <button type="button" class="button-reg" data-cart-id=""
                                     data-cart-change-url="">-</button>
                             </span>
-                            <input type="text" class="search-box" value="1" readonly>
+                            <input type="text" class="search-box" value="{{ cart.quantity }}" readonly>
                             <span>
                                 <button type="button" class="button-reg" data-cart-id=""
                                     data-cart-change-url="">+</button>
                             </span>
-                            <span>x 100.00 = </span>
-                            <span>100.00 руб.</span>
-                            <a href="{% url "carts:cart_remove" %}" class="remove-from-cart" data-cart-id="">
+                            <p>x {{ cart.product.sell_price }} = </p>
+                            <p><strong>{{ cart.products_price }} руб.</strong></p>
+                            <a href="{% url "carts:cart_remove" 1 %}" class="remove-from-cart" data-cart-id="">
                                 <img src="{% static "deps/icons/trash3-fill.svg" %}" alt="Catalog Icon" width="25" height="25">
                             </a>
                         </div>
                     </div>
-        </div>
+        
+                </ul>
+                </div>
+            {% endfor %}
+            
         <div>
             <div>
-                <p>Итого <strong>1</strong> товар(а) на сумму</p>
-                <h4><strong>100.00 руб.</strong></h4>
+                <p>Итого <strong>{{ carts.total_quantity }}</strong> товар(а) на сумму</p>
+                <h3><strong>{{ carts.total_price }} руб.</strong></h3>
                 <a class="button-reg-bigger" href="../orders/create_order.html">
                     Оформить заказ
                 </a>
