@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from carts.models import Cart
 from goods.models import Products
@@ -19,23 +19,23 @@ def cart_add(request, product_slug):
                 cart.save()
         else:
             Cart.objects.create(user=request.user, product=product, quantity=1)
+    
     return redirect(request.META['HTTP_REFERER'])
 
 def cart_change(request, cart_id):
+    cart = get_object_or_404(Cart, id=cart_id)
+    
     if request.method == 'POST':
         action = request.POST.get('action')
 
-        cart = Cart.objects.get(id=cart_id)
-
         if action == 'increase':
             cart.quantity += 1
-            cart.save()
-        elif action == 'decrease' and cart.quantity > 1:  
+        elif action == 'decrease' and cart.quantity > 1:
             cart.quantity -= 1
-            cart.save()
-
+        
+        cart.save()
+    
     return redirect(request.META['HTTP_REFERER'])
-
 
 
 def cart_remove(request, cart_id):
