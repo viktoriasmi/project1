@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block content %}
+{% include "includes/notifications.html" %}
 <div class="container">
     <img src="{{ product.image.url }}" class="image-left" alt="img">
     <div class="justify-content-center">

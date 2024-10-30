@@ -1,5 +1,7 @@
 from tabnanny import verbose
 from django.db import models
+from django.template.base import kwarg_re
+from django.urls import reverse
 
 class Categories(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
@@ -35,6 +37,9 @@ class Products(models.Model):
     def display_id(self):
         return f"{self.id:05}"
     
+    def get_absolute_url(self):
+        return reverse("catalog:product", kwargs={"product_slug": self.slug})
+
     def sell_price(self):
         if self.discount:
             return round(self.price - self.price*self.discount/100, 2)

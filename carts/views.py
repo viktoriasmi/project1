@@ -1,4 +1,6 @@
+from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 
 from carts.models import Cart
 from goods.models import Products
@@ -19,6 +21,10 @@ def cart_add(request, product_slug):
                 cart.save()
         else:
             Cart.objects.create(user=request.user, product=product, quantity=1)
+        messages.success(request, 'Товар добавлен в корзину.')
+    else:
+        messages.warning(request, 'Для добавления товара в корзину вам необходимо войти в систему.')
+        return redirect(reverse('user:login'))  
     
     return redirect(request.META['HTTP_REFERER'])
 
