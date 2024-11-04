@@ -18,3 +18,15 @@ def about(request):
         'content': "Доставка еды японской кухни"
     }
     return render(request, 'main/about.html', context)
+
+def news(request):
+    context = {
+        'title': 'Новости',
+    }
+    return render(request, 'main/news.html', context)
+
+def delivery(request):
+    context = {
+        'title': 'Информация о доставке',
+    }
+    return render(request, 'main/delivery.html', context)

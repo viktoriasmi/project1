@@ -44,7 +44,7 @@
             {% endfor %}
         </ul>
         
-        <a class="font-links-nound" href="#">Доставка и оплата</a>
+        <a class="font-links-nound" href="{% url "main:delivery" %}">Доставка и оплата</a>
         
         <a href="{% url "main:index" %}"><img src="{% static "deps/images/logotype-correct.png" %}" alt="img" /></a>
         
@@ -52,8 +52,7 @@
         <a id="infoButton">Информация</a>
         <ul id="infoList" class="dropdown-content">
             <li><a href="{% url "main:about" %}">Контактная информация</a></li>
-            <li><a class="font-links-nound" href="#">Доставка и оплата</a></li>
-            <li><a href="#">Новости</a></li>
+            <li><a href="{% url "main:news" %}">Новости</a></li>
         </ul>
 
         {% if not user.is_authenticated %}

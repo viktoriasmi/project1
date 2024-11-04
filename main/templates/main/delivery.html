@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block content %}
+    <div class="container">
+        <div class="text-align-left">
+            <div class="text-align-center">
+
+                <h2>Условия доставки</h2>
+                <a>Доставка осуществляется:</a>
+                <p></p>
+                <a>🕔 вс-чт 10:00 - 22:00</a>
+                <p></p>
+                <a>🕔 пт-сб 11:00 - 23:00</a>
+            </div>
+                <p></p>
+                <h3>Минимальная сумма заказа для бесплатной доставки составляет 800 рублей</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="text-align-left">
+            <div class="text-align-center">
+        <h3>Мы производим доставку в этом районе города: </h3>
+        <img src="{% static "deps/images/delivery.png" %}" alt="img">
+    </div>
+    </div>
+    </div>
+    {% endblock content %}
