@@ -84,90 +84,60 @@
       </div>
     </div>
  <p></p>
-       <div class="container">
-        <div class="justify-content-center">
-            <h2 class="text-center">Мои заказы</h2>
-                    <!-- Разметка заказов -->
-                    <div>
-                        <div id="accordionExample">
-                            <div>
-                                <h2 id="heading1">
-                                    <button class="button-reg-bigger" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                                        Заказ № 256 - 09 сентября 2024 9:04 | Статус:<strong> В
-                                            обработке</strong>
-                                    </button>
-                                </h2>
-                                <div id="collapse1"
-                                    aria-labelledby="heading1" data-bs-parent="#accordionExample">
-                                    <div>
-                                        <table class="text-align-center">
-                                            <thead>
-                                                <tr>
-                                                    <th>Товар</th>
-                                                    <th>Количество</th>
-                                                    <th>Цена</th>
-                                                    <th>Общая стоимость</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><a class="font-links" href="#">Роллы «Калифорния»</a>
-                                                    </td>
-                                                    <td>1</td>
-                                                    <td>255.00 руб.</td>
-                                                    <td>255.00 руб.</td>
-
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div>
-                                            <p><strong>Итого:</strong></p>
-                                            <p><strong>255.00 руб.</strong></p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <h2 id="heading2">
-                                    <button class="button-reg-bigger" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false"
-                                        aria-controls="collapse2">
-                                        Заказ № 248 - 01 августа 2024 11:28 | Статус: <strong>Получен</strong>
-                                    </button>
-                                </h2>
-                                <div id="collapse2" aria-labelledby="heading2"
-                                    data-bs-parent="#accordionExample">
-                                    <div>
-                                        <table class="text-align-center">
-                                            <thead>
-                                                <tr>
-                                                    <th>Товар</th>
-                                                    <th>Количество</th>
-                                                    <th>Цена</th>
-                                                    <th>Общая стоимость</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><a class="font-links" href="#">Суши с угрём</a></td>
-                                                    <td>2</td>
-                                                    <td>400.00 руб.</td>
-                                                    <td>800.00 руб.</td>
-
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+ <div class="container">
+    <div class="justify-content-center">
+        <h2 class="text-align-center text font-size-2">Мои заказы</h2>
+        <!-- Оформленные заказы -->
+        <div class="container-cart" style="background-color: black;"> 
+            <div class="container-cart-inside">
+                <!-- Разметка заказов -->
+                <div class="row-goods">
+                    <div class="accordion" id="accordionExample">
+                        {% for order in orders %}
+                        <div class="accordion-item" style="margin-bottom: 10px;">
+                            <h2 class="accordion-header" id="heading{{ order.id }}">
+                                <button class="button-reg-bigger {% if order != orders.0 %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="false" aria-controls="collapse{{ order.id }}">
+                                    Заказ № {{ order.id }} - {{ order.created_timestamp }} | Статус: <strong>{{ order.get_status_display }}</strong>
+                                </button>
+                            </h2>
+                            <div id="collapse{{ order.id }}" class="accordion-collapse collapse {% if order == orders.0 %}show{% endif %}" aria-labelledby="heading{{ order.id }}" data-bs-parent="#accordionExample">
+                                <div class="accordion-body" style="padding: 10px; background-color: #1a1a1a;"> 
+                                    <table style="width: 100%; background-color: #1a1a1a; border-collapse: separate; border-spacing: 10px;" class="table"> <!-- border-spacing для расстояния между ячейками -->
+                                        <thead>
+                                            <tr>
+                                                <th class="text font-links-nound">Товар</th>
+                                                <th class="text font-links-nound">Количество</th>
+                                                <th class="text font-links-nound">Цена</th>
+                                                <th class="text font-links-nound">Общая стоимость</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for item in order.orderitem_set.all %}
+                                            <tr style="height: 50px;">
+                                                <td style="padding: 10px; width: 50px;"> <!-- Добавьте padding и укажите ширину ячейки -->
+                                                    <a class="text font-links" href="{% url 'goods:product' item.product.slug %}">{{ item.product.name }}</a>
+                                                </td>
+                                                <td class="text" style="padding: 10px;">{{ item.quantity }}</td>
+                                                <td class="text" style="padding: 10px;">{{ item.price }}</td>
+                                                <td class="text" style="padding: 10px;">{{ item.products_price }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    <!-- Закончилась разметка заказов -->
                 </div>
-          
+            </div>
         </div>
+        <!-- Закончилась разметка заказов -->
+    </div>
+</div>
+
+
+
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 from tabnanny import verbose
 from django.db import models
 from goods.models import Products
-
+from django.utils.translation import gettext_lazy as _
 from users.models import User
 
 class OrderitemQueryset(models.QuerySet):
@@ -22,7 +22,13 @@ class Order(models.Model):
     delivery_address = models.TextField(null=True, blank=True, verbose_name="Адрес доставки")
     payment_on_get = models.BooleanField(default=False, verbose_name="Оплата при получении")
     is_paid = models.BooleanField(default=False, verbose_name="Оплачено")
-    status = models.CharField(max_length=50, default='В обработке', verbose_name="Статус заказа")
+    STATUS_CHOICES = [
+        ('in_process', _('В обработке')),
+        ('in_progress', _('В процессе')),
+        ('completed', _('Завершен')),
+    ]
+    
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='В обработке', verbose_name="Статус заказа")
 
     class Meta:
         db_table = "order"
