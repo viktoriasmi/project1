@@ -1,12 +1,13 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils import timezone
 
 from carts.models import Cart
 from goods.models import Products
 
 def cart(request):
-    return render(request, 'carts/cart.html')
+    return render(request, 'carts/cart_main.html')
 
 def cart_add(request, product_slug):
     product = Products.objects.get(slug=product_slug)

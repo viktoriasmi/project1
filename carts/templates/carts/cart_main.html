@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% load carts_tags %}
+
+{% block content %}
+{% user_carts request as carts %}
+
+<div class="container-cart">
+    <div class="justify-content-center">
+        <h2 class="text-center">Корзина</h2>
+        {% include "carts/cart.html" %}
+    <div/>
+    <div>
+        {% if carts %}
+    <div class="summary-container">
+        <a class="button-reg-bigger" href="{% url "orders:create_order" %}">
+            Оформить заказ
+        </a>
+    </div>
+{% endif %}
+
+    <div/>
+<div/>
+            
+
+{% endblock  %}

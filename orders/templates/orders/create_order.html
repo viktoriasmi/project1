@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+{% load carts_tags %}
+
+{% block content %}
+<h2 class="text-center">Выбранные товары</h2>
+<div class="justify-content-center">
+    <div class="container" id="cart-items-container">
+        {% user_carts request as carts %}
+        {% include "carts/cart.html" %}
+    </div>
+</div>
+<h2 class="text-center">Детали заказа</h2>
+<div class="container">
+    <div class="text-align-center">
+        <div class="justify-content-center">
+            <form action="{% url "orders:create_order" %}" method="post">
+                {% csrf_token %}
+                <div class="row2">
+                    <div class="field">
+                        <label for="id_first_name">Имя*:</label>
+                        <input type="text" class="search-box-1" id="id_first_name" 
+                            value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
+                            name="first_name" required>
+                        {% if form.first_name.errors %}
+                        <div class="text-red">{{form.first_name.errors}}</div>
+                        {% endif %}
+                    </div>
+                    <div class="field">
+                        <label for="id_last_name">Фамилия*:</label>
+                        <input type="text" class="search-box-1" id="id_last_name" 
+                            value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
+                            name="last_name" required>
+                        {% if form.last_name.errors %}
+                        <div class="text-red">{{form.last_name.errors}}</div>
+                        {% endif %}
+                    </div>
+                    <div class="field">
+                        <label for="id_phone_number">Номер телефона*:</label>
+                        <input type="text" class="search-box-1" id="id_phone_number" 
+                            value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
+                            name="phone_number" placeholder="В формате: XXX-XXX-XX-XX" required>
+                        {% if form.phone_number.errors %}
+                        <div class="text-red">{{form.phone_number.errors}}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <p></p>
+                <div class="row2 delivery-row">
+                    <div class="field">
+                        <label>Способ доставки:</label>
+                        <div class="delivery-options">
+                            <input type="radio" name="requires_delivery" id="delivery_yes" value="1" checked>
+                            <label for="delivery_yes">Нужна доставка</label>
+                            <input type="radio" name="requires_delivery" id="delivery_no" value="0">
+                            <label for="delivery_no">Самовывоз</label>
+                        </div>
+                    </div>
+                    <div class="field" id="delivery_address_field">
+                        <label for="id_delivery_address">Адрес доставки*:</label>
+                        <textarea class="search-box-1" id="id_delivery_address" 
+                            name="delivery_address" rows="1"></textarea>
+                        {% if form.delivery_address.errors %}
+                        <div class="text-red">{{form.delivery_address.errors}}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <p></p>
+                <div class="row2 payment-row">
+                    <div class="field">
+                        <label>Способ оплаты:</label>
+                        <div class="payment-options">
+                            <input class="ratio" type="radio" name="payment_on_get" id="id_payment_on_get_0" value="0" checked>
+                            <label for="id_payment_on_get_0">Оплата картой</label>
+                            <input class="ratio" type="radio" name="payment_on_get" id="id_payment_on_get_1" value="1">
+                            <label for="id_payment_on_get_1">Наличными/картой при получении</label>
+                            {% if form.payment_on_get.errors %}
+                            <div class="text-red">{{form.payment_on_get.errors}}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+                <button type="submit" class="button-reg">Оформить заказ</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deliveryYes = document.getElementById('delivery_yes');
+        const deliveryNo = document.getElementById('delivery_no');
+        const deliveryAddressField = document.getElementById('delivery_address_field');
+
+        function toggleDeliveryAddress() {
+            if (deliveryYes.checked) {
+                deliveryAddressField.style.display = 'block';
+            } else {
+                deliveryAddressField.style.display = 'none';
+            }
+        }
+
+        deliveryYes.addEventListener('change', toggleDeliveryAddress);
+        deliveryNo.addEventListener('change', toggleDeliveryAddress);
+
+        toggleDeliveryAddress();
+    });
+</script>
+{% endblock content %}

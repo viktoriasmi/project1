@@ -384,6 +384,23 @@ input[type="file"] {
     margin-right: 0;
   }
 
+
+#cart-items-container {
+    display: flex;
+    flex-direction: column; 
+}
+
+.total-summary {
+    text-align: center; 
+    padding-top: 20px; 
+}
+
+.summary-container {
+    text-align: center; 
+    margin-top: 20px;  
+}
+
+
 .row-goods {
     display:flex;
     padding: 10px 150px;
@@ -394,5 +411,38 @@ input[type="file"] {
     display:flex;
 }
 
+.row2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.field {
+    flex: 1;  
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin: 10px; 
+}
+
+.delivery-options,
+.payment-options {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+}
+
+.delivery-options input,
+.payment-options input {
+    margin: 0 10px; 
+}
+
+.ratio {
+    width: 20px;
+    height: 20px;
+    margin: 10px 0;
+    margin-left: 200px;
+}
 
 
