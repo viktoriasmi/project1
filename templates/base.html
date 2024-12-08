@@ -63,7 +63,7 @@
             <li><a href="{% url "users:profile" %}">Личный кабинет</a></li>
             <li><a class="font-links-nound" href="{% url "carts:cart" %}">Корзина</a></li>
             {% if user.is_admin or user.is_staff %}
-                <li><a href="{% url "admin:index" %}">Админ</a></li>
+                <li><a href="{% url "admin:index" %}">Администрирование</a></li>
             {% endif %}
             <hr>
             <li><a href="{% url "users:logout" %}">Выйти</a></li>

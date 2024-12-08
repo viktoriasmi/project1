@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 
-    {% block content %}
-
-    {% endblock content %}
+{% block content %}
+<div class="container-news">
+    <h1 class="text-align-center">{{ title }}</h1>
+    <div class="row-goods">
+        {% for item in news_items %}
+            <div class="container-news2">
+                <h2>{{ item.title }}</h2>
+                <img src="{{ item.image.url }}" alt="{{ item.title }}" class="news-image">
+                <p>{{ item.content|truncatewords:30 }}</p>
+                <a href="{% url 'main:news_detail' item.id %}" class="button-reg">Читать далее</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

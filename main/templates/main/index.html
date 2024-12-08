@@ -1,13 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
 
-    {% block content %}
-   
+{% block content %}
+<div class="text-center">
+    <h1>{{ title }}</h1>
+</div>
 
-    <p class="text-align-center"></p>
-
-    <p class="text-align-center"></p>
-    {% endblock content %}
+<div class="container-news">
+    {% if latest_news %}
+        <div class="latest-news">
+            <div class="text-center">
+                <h2>Последняя новость</h2>
+            
+            
+            <h3>{{ latest_news.title }}</h3>
+            <img src="{{ latest_news.image.url }}" alt="{{ latest_news.title }}" style="max-width: 100%; height: auto;" class="news-image-small">
+            <p>{{ latest_news.content|truncatewords:30 }}</p>
+            <a href="{% url 'main:news_detail' latest_news.id %}" class="button-reg">Читать далее</a>
+        </div>
+        </div>
+    {% else %}
+        <p>Нет доступных новостей.</p>
+    {% endif %}
+</div>
+{% endblock %}
     
 
 

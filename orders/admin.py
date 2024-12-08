@@ -30,8 +30,8 @@ class OrderTabularAdmin(admin.TabularInline):
         "status",
         "payment_on_get",
         "is_paid",
-        "created_timestamp",
     )
+    readonly_fields = ("created_timestamp",)
     
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
